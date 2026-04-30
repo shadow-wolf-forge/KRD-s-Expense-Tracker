@@ -4,7 +4,7 @@
     "description": "dsjf",
     "amount": 1.25,
     "method": "cash",
-    "done": true,
+    "done": false,
     "created_at": "2026-04-30T17:44:54.562Z"
   }
 ]
