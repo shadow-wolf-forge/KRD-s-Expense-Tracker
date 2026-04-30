@@ -1,1 +1,9 @@
-[]
+[
+  {
+    "id": 1777569914101.0256,
+    "description": "Tea",
+    "amount": 19,
+    "method": "cash",
+    "created_at": "2026-04-30T17:25:14.101Z"
+  }
+]
