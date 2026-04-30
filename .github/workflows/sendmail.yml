@@ -7,6 +7,10 @@ on:
         description: "CSV file name"
         required: true
         default: "expenses.csv"
+      to_email:
+        description: "Recipient email"
+        required: true
+        default: "example@gmail.com"
 
 jobs:
   send-mail:
@@ -26,10 +30,10 @@ jobs:
         with:
           server_address: smtp.gmail.com
           server_port: 465
-          username: karthikramadurai.cpi@gmail.com
-          password: nnvt jekv bbcv wxwb
+          username: ${{ secrets.MAIL_USERNAME }}
+          password: ${{ secrets.MAIL_PASSWORD }}
           subject: Your CSV file
-          to: karthikramadurai.ci@gmail.com
-          from: karthikramadurai.cpi@gmail.com
+          to: ${{ github.event.inputs.to_email }}
+          from: ${{ secrets.MAIL_USERNAME }}
           body: Please find the CSV attached.
           attachments: ${{ github.event.inputs.output_name }}
