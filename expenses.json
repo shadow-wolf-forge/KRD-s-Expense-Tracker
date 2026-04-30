@@ -6,13 +6,5 @@
     "method": "cash",
     "done": false,
     "created_at": "2026-04-30T18:03:04.329Z"
-  },
-  {
-    "id": 1777572270744.632,
-    "description": "sdfs12",
-    "amount": 123,
-    "method": "gpay",
-    "done": true,
-    "created_at": "2026-04-30T18:04:30.743Z"
   }
 ]
