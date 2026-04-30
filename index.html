@@ -694,7 +694,7 @@ input[type="number"] { -moz-appearance: textfield; }
         <div class="logo-dot">💸</div>
         <span class="app-name">KRD's Expenses</span>
       </div>
-    
+     
     </div>
   </div>
 
@@ -753,7 +753,6 @@ input[type="number"] { -moz-appearance: textfield; }
         </div>
       </div>
 
-    
 
       <button class="add-btn" id="addBtn">
         <span>+</span> Add Expense
@@ -1092,11 +1091,7 @@ async function deleteExp(idx) {
   await save('Delete expense: ' + exp.description);
 }
 
-document.getElementById('logoutBtn').onclick = () => {
-  if (confirm('Logout?')) {
-    window.location.href = 'index.html';
-  }
-};
+
 
 load();
 </script>
