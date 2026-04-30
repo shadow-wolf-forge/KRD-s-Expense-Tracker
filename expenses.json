@@ -22,13 +22,5 @@
     "method": "gpay",
     "done": true,
     "created_at": "2026-04-30T18:36:47.034Z"
-  },
-  {
-    "id": 1777574211384.859,
-    "description": "Aiska",
-    "amount": 364,
-    "method": "cash",
-    "done": false,
-    "created_at": "2026-04-30T18:36:51.384Z"
   }
 ]
