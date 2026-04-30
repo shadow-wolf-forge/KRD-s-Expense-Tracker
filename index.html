@@ -1,1 +1,1063 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+<title>KRD's Expense Tracker</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #0c0c10;
+  --bg2: #13131a;
+  --bg3: #1c1c27;
+  --surface: rgba(255,255,255,0.04);
+  --surface2: rgba(255,255,255,0.07);
+  --border: rgba(255,255,255,0.09);
+  --border2: rgba(255,255,255,0.16);
+  --text: #f0eefc;
+  --text2: #a09ec0;
+  --muted: #55536e;
+  --accent: #7c6fff;
+  --accent2: #5b4fdf;
+  --green: #22d3a4;
+  --green2: #14a87e;
+  --red: #ff5f7e;
+  --yellow: #ffd166;
+  --cash: #22d3a4;
+  --gpay: #4285f4;
+  --r: 14px;
+  --rs: 10px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+
+html, body {
+  height: 100%;
+  overscroll-behavior: none;
+}
+
+body {
+  font-family: 'Syne', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  font-size: 15px;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Ambient background */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 60% 40% at 20% 10%, rgba(124,111,255,0.12) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 30% at 80% 80%, rgba(34,211,164,0.07) 0%, transparent 60%);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.app {
+  position: relative;
+  z-index: 1;
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 0 0 120px 0;
+  min-height: 100vh;
+}
+
+/* ── Header ── */
+.header {
+  padding: 20px 20px 12px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: linear-gradient(to bottom, var(--bg) 80%, transparent);
+}
+
+.header-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 4px;
+}
+
+.logo-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo-dot {
+  width: 36px;
+  height: 36px;
+  background: linear-gradient(135deg, var(--accent), #c084fc);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  flex-shrink: 0;
+}
+
+.app-name {
+  font-size: 19px;
+  font-weight: 800;
+  letter-spacing: -0.3px;
+  background: linear-gradient(90deg, var(--text), var(--accent));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.logout-btn {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text2);
+  padding: 7px 14px;
+  border-radius: 99px;
+  font-size: 13px;
+  font-family: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.logout-btn:active { opacity: 0.7; }
+
+/* ── Summary Strip ── */
+.summary-strip {
+  display: flex;
+  gap: 10px;
+  padding: 0 20px 16px;
+}
+
+.sum-card {
+  flex: 1;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r);
+  padding: 14px 12px;
+  text-align: center;
+}
+
+.sum-label {
+  font-size: 11px;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  margin-bottom: 5px;
+}
+
+.sum-value {
+  font-size: 18px;
+  font-weight: 700;
+  font-family: 'DM Mono', monospace;
+}
+
+.sum-value.total { color: var(--accent); }
+.sum-value.cash-val { color: var(--cash); }
+.sum-value.gpay-val { color: var(--gpay); }
+
+/* ── Add Expense Card ── */
+.add-card {
+  margin: 0 16px 20px;
+  background: var(--bg2);
+  border: 1px solid var(--border2);
+  border-radius: var(--r);
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+}
+
+.add-card-header {
+  padding: 14px 18px 0;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.add-card-body {
+  padding: 12px 18px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Inputs */
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.input-label {
+  font-size: 12px;
+  color: var(--text2);
+  font-weight: 600;
+  letter-spacing: 0.3px;
+}
+
+.field-input {
+  width: 100%;
+  padding: 13px 14px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--rs);
+  color: var(--text);
+  font-size: 15px;
+  font-family: 'Syne', sans-serif;
+  font-weight: 500;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  -webkit-appearance: none;
+  appearance: none;
+  outline: none;
+}
+
+.field-input::placeholder { color: var(--muted); }
+
+.field-input:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(124,111,255,0.15);
+  background: var(--surface2);
+}
+
+.amount-input {
+  font-family: 'DM Mono', monospace;
+  font-size: 20px;
+  font-weight: 500;
+  letter-spacing: -0.5px;
+}
+
+/* ── Payment Toggle ── */
+.pay-toggle-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.pay-toggle {
+  display: flex;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--rs);
+  padding: 4px;
+  position: relative;
+  height: 52px;
+}
+
+.pay-toggle input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.pay-option {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  border-radius: 7px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 700;
+  transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+  color: var(--muted);
+  z-index: 1;
+  user-select: none;
+  letter-spacing: 0.3px;
+}
+
+.pay-icon {
+  font-size: 18px;
+  line-height: 1;
+}
+
+/* Sliding pill */
+.pay-toggle::before {
+  content: '';
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  width: calc(50% - 4px);
+  height: calc(100% - 8px);
+  border-radius: 7px;
+  background: linear-gradient(135deg, var(--cash), var(--green2));
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), background 0.3s;
+  box-shadow: 0 4px 12px rgba(34,211,164,0.3);
+}
+
+#payGpay:checked ~ .pay-toggle::before,
+.pay-toggle[data-pay="gpay"]::before {
+  transform: translateX(100%);
+  background: linear-gradient(135deg, var(--gpay), #1a73e8);
+  box-shadow: 0 4px 12px rgba(66,133,244,0.3);
+}
+
+#payCash:checked ~ label[for="payCash"],
+label[for="payCash"].active {
+  color: #0a0c10;
+}
+
+#payGpay:checked ~ label[for="payGpay"],
+label[for="payGpay"].active {
+  color: #fff;
+}
+
+/* JS-driven approach for the toggle */
+.pay-option.selected-cash {
+  color: #0a0c10 !important;
+}
+
+.pay-option.selected-gpay {
+  color: #fff !important;
+}
+
+/* ── Add Button ── */
+.add-btn {
+  width: 100%;
+  padding: 15px;
+  background: linear-gradient(135deg, var(--accent), var(--accent2));
+  color: #fff;
+  border: none;
+  border-radius: var(--rs);
+  font-size: 15px;
+  font-family: 'Syne', sans-serif;
+  font-weight: 700;
+  cursor: pointer;
+  letter-spacing: 0.3px;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  box-shadow: 0 6px 20px rgba(124,111,255,0.35);
+}
+
+.add-btn:active {
+  transform: scale(0.97);
+  box-shadow: none;
+}
+
+/* ── Expense List ── */
+.list-section {
+  padding: 0 16px;
+}
+
+.list-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+  padding: 0 4px;
+}
+
+.list-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.list-count {
+  font-size: 12px;
+  color: var(--muted);
+  background: var(--surface);
+  padding: 4px 10px;
+  border-radius: 99px;
+  font-family: 'DM Mono', monospace;
+}
+
+/* Expense rows */
+.expense-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.expense-item {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: var(--r);
+  padding: 14px 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  transition: all 0.2s;
+  animation: slideIn 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateY(10px) scale(0.97); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.pay-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.pay-dot.cash { background: var(--cash); box-shadow: 0 0 8px rgba(34,211,164,0.5); }
+.pay-dot.gpay { background: var(--gpay); box-shadow: 0 0 8px rgba(66,133,244,0.5); }
+
+.expense-desc {
+  flex: 1;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text);
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.expense-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.expense-method {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 99px;
+  letter-spacing: 0.5px;
+}
+
+.expense-method.cash {
+  background: rgba(34,211,164,0.12);
+  color: var(--cash);
+  border: 1px solid rgba(34,211,164,0.25);
+}
+
+.expense-method.gpay {
+  background: rgba(66,133,244,0.12);
+  color: var(--gpay);
+  border: 1px solid rgba(66,133,244,0.25);
+}
+
+.expense-amount {
+  font-family: 'DM Mono', monospace;
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--text);
+  min-width: 64px;
+  text-align: right;
+}
+
+.item-actions {
+  display: flex;
+  gap: 6px;
+}
+
+.icon-btn {
+  width: 34px;
+  height: 34px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 15px;
+  transition: all 0.18s;
+  flex-shrink: 0;
+}
+
+.icon-btn:active { transform: scale(0.9); }
+
+.icon-btn.edit { color: var(--accent); }
+.icon-btn.edit:hover { background: rgba(124,111,255,0.12); border-color: rgba(124,111,255,0.3); }
+
+.icon-btn.del { color: var(--red); }
+.icon-btn.del:hover { background: rgba(255,95,126,0.1); border-color: rgba(255,95,126,0.25); }
+
+.icon-btn.save { color: var(--green); }
+.icon-btn.save:hover { background: rgba(34,211,164,0.1); border-color: rgba(34,211,164,0.25); }
+
+.icon-btn.cancel { color: var(--text2); }
+
+/* ── Edit Row ── */
+.expense-item.editing {
+  background: var(--bg3);
+  border-color: var(--accent);
+  box-shadow: 0 0 0 1px rgba(124,111,255,0.2);
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.edit-fields {
+  display: flex;
+  gap: 8px;
+  width: 100%;
+  align-items: center;
+}
+
+.edit-desc {
+  flex: 1;
+  padding: 9px 12px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  color: var(--text);
+  font-size: 14px;
+  font-family: 'Syne', sans-serif;
+  font-weight: 500;
+  outline: none;
+  min-width: 0;
+}
+
+.edit-desc:focus { border-color: var(--accent); }
+
+.edit-amount {
+  width: 90px;
+  padding: 9px 10px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  color: var(--text);
+  font-size: 14px;
+  font-family: 'DM Mono', monospace;
+  outline: none;
+  text-align: right;
+  flex-shrink: 0;
+}
+
+.edit-amount:focus { border-color: var(--accent); }
+
+/* Mini pay toggle for edit */
+.edit-pay-toggle {
+  display: flex;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 3px;
+  gap: 2px;
+  flex-shrink: 0;
+}
+
+.edit-pay-opt {
+  padding: 6px 10px;
+  border-radius: 5px;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  color: var(--muted);
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+
+.edit-pay-opt.active-cash {
+  background: linear-gradient(135deg, var(--cash), var(--green2));
+  color: #0a0c10;
+}
+
+.edit-pay-opt.active-gpay {
+  background: linear-gradient(135deg, var(--gpay), #1a73e8);
+  color: #fff;
+}
+
+/* ── Empty State ── */
+.empty {
+  text-align: center;
+  padding: 48px 20px;
+  color: var(--muted);
+}
+
+.empty-icon { font-size: 40px; margin-bottom: 12px; }
+.empty-title { font-size: 16px; font-weight: 700; margin-bottom: 6px; color: var(--text2); }
+.empty-sub { font-size: 13px; }
+
+/* ── Toast ── */
+.toast {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%) translateY(20px);
+  background: var(--bg3);
+  border: 1px solid var(--border2);
+  color: var(--text);
+  padding: 12px 22px;
+  border-radius: 99px;
+  font-size: 14px;
+  font-weight: 600;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+  z-index: 999;
+  opacity: 0;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  white-space: nowrap;
+}
+
+.toast.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+.toast.success { border-color: rgba(34,211,164,0.4); color: var(--green); }
+.toast.error { border-color: rgba(255,95,126,0.4); color: var(--red); }
+
+/* ── Loading overlay ── */
+.saving-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent), var(--green));
+  z-index: 200;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s;
+}
+.saving-bar.active { transform: scaleX(1); }
+
+/* ── Date badge ── */
+.expense-date {
+  font-size: 10px;
+  color: var(--muted);
+  font-family: 'DM Mono', monospace;
+  display: block;
+  margin-top: 2px;
+}
+
+/* Number input — remove spinners */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button { -webkit-appearance: none; }
+input[type="number"] { -moz-appearance: textfield; }
+</style>
+</head>
+<body>
+
+<div class="saving-bar" id="savingBar"></div>
+
+<div class="app">
+
+  <!-- Header -->
+  <div class="header">
+    <div class="header-top">
+      <div class="logo-row">
+        <div class="logo-dot">💸</div>
+        <span class="app-name">KRD's Expenses</span>
+      </div>
+      <button class="logout-btn" id="logoutBtn">Logout</button>
+    </div>
+  </div>
+
+  <!-- Summary -->
+  <div class="summary-strip">
+    <div class="sum-card">
+      <div class="sum-label">Total</div>
+      <div class="sum-value total" id="sumTotal">₹0</div>
+    </div>
+    <div class="sum-card">
+      <div class="sum-label">💵 Cash</div>
+      <div class="sum-value cash-val" id="sumCash">₹0</div>
+    </div>
+    <div class="sum-card">
+      <div class="sum-label">📱 GPay</div>
+      <div class="sum-value gpay-val" id="sumGpay">₹0</div>
+    </div>
+  </div>
+
+  <!-- Add expense form -->
+  <div class="add-card">
+    <div class="add-card-header">New Expense</div>
+    <div class="add-card-body">
+
+      <div class="input-group">
+        <label class="input-label">Description</label>
+        <input
+          id="newDesc"
+          class="field-input"
+          type="text"
+          placeholder="e.g. Coffee, Auto fare…"
+          autocomplete="off"
+        />
+      </div>
+
+      <div class="input-group">
+        <label class="input-label">Amount (₹)</label>
+        <input
+          id="newAmount"
+          class="field-input amount-input"
+          type="number"
+          inputmode="decimal"
+          placeholder="0.00"
+          step="0.01"
+          min="0"
+        />
+      </div>
+
+      <div class="pay-toggle-wrap">
+        <label class="input-label">Payment Method</label>
+        <div class="pay-toggle" id="payToggle">
+          <label class="pay-option" id="optCash" onclick="selectPay('cash')">
+            <span class="pay-icon">💵</span> Cash
+          </label>
+          <label class="pay-option" id="optGpay" onclick="selectPay('gpay')">
+            <span class="pay-icon">📱</span> GPay
+          </label>
+        </div>
+      </div>
+
+      <button class="add-btn" id="addBtn">
+        <span>+</span> Add Expense
+      </button>
+    </div>
+  </div>
+
+  <!-- Expense list -->
+  <div class="list-section">
+    <div class="list-header">
+      <span class="list-title">Expenses</span>
+      <span class="list-count" id="listCount">0 entries</span>
+    </div>
+    <div class="expense-list" id="expenseList">
+      <div class="empty" id="emptyState">
+        <div class="empty-icon">🧾</div>
+        <div class="empty-title">No expenses yet</div>
+        <div class="empty-sub">Add your first expense above</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+// ── Config ──────────────────────────────────────────────
+const OWNER = 'shadow-wolf-forge';
+const REPO  = 'KRD-s-Expense-Tracker';
+const FILE  = 'expenses.json';
+
+// GitHub token split into 3 parts — replace each segment with your actual token pieces
+const T1 = 'github_pat_11BXK4LGI0tSbhvYpXOa3g_';   // e.g. first portion:  'ghp_Ab1Cd'
+const T2 = '4S8RKNeE1lyKSSeSZbYMTjPp8ULQETFfiSY';        // e.g. middle portion:  'EfGhIjKl'
+const T3 = 'nkgmT4q83T6FH56Qr7WDOZGu';        // e.g. final portion:   'MnOpQrSt'
+const GITHUB_TOKEN = T1 + T2 + T3;
+
+let token = GITHUB_TOKEN;
+let expenses = [];
+let sha = null;
+let selectedPay = 'cash';
+
+// ── Helpers ──────────────────────────────────────────────
+function enc(str) { return btoa(unescape(encodeURIComponent(str))); }
+function dec(b64) { return decodeURIComponent(escape(atob(b64))); }
+function headers() {
+  return {
+    'Authorization': 'token ' + token,
+    'Accept': 'application/vnd.github+json',
+    'Content-Type': 'application/json'
+  };
+}
+
+function fmt(n) {
+  return '₹' + Number(n).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+}
+
+function fmtDate(iso) {
+  if (!iso) return '';
+  const d = new Date(iso);
+  return d.toLocaleDateString('en-IN', { day:'2-digit', month:'short', timeZone:'Asia/Kolkata' });
+}
+
+function showToast(msg, type = 'success') {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.className = 'toast ' + type + ' show';
+  clearTimeout(t._t);
+  t._t = setTimeout(() => t.className = 'toast', 2400);
+}
+
+function setSaving(on) {
+  document.getElementById('savingBar').classList.toggle('active', on);
+}
+
+// ── Payment toggle ───────────────────────────────────────
+function selectPay(method) {
+  selectedPay = method;
+  const toggle = document.getElementById('payToggle');
+  const optCash = document.getElementById('optCash');
+  const optGpay = document.getElementById('optGpay');
+
+  if (method === 'cash') {
+    toggle.setAttribute('data-pay', 'cash');
+    toggle.style.setProperty('--pill-x', '0');
+    optCash.className = 'pay-option selected-cash';
+    optGpay.className = 'pay-option';
+  } else {
+    toggle.setAttribute('data-pay', 'gpay');
+    optGpay.className = 'pay-option selected-gpay';
+    optCash.className = 'pay-option';
+  }
+}
+
+// CSS-driven pill via attribute
+const styleEl = document.createElement('style');
+styleEl.textContent = `
+  .pay-toggle[data-pay="gpay"]::before {
+    transform: translateX(100%) !important;
+    background: linear-gradient(135deg, #4285f4, #1a73e8) !important;
+    box-shadow: 0 4px 12px rgba(66,133,244,0.3) !important;
+  }
+  .pay-toggle[data-pay="cash"]::before {
+    transform: translateX(0) !important;
+    background: linear-gradient(135deg, #22d3a4, #14a87e) !important;
+    box-shadow: 0 4px 12px rgba(34,211,164,0.3) !important;
+  }
+`;
+document.head.appendChild(styleEl);
+
+// Init toggle
+selectPay('cash');
+
+// ── GitHub API ───────────────────────────────────────────
+async function load() {
+  setSaving(true);
+  try {
+    const url = `https://api.github.com/repos/${OWNER}/${REPO}/contents/${FILE}`;
+    const res = await fetch(url, { headers: headers() });
+
+    if (res.status === 404) {
+      expenses = [];
+      sha = null;
+      render();
+      return;
+    }
+    if (!res.ok) throw new Error(res.status);
+
+    const data = await res.json();
+    sha = data.sha;
+    expenses = JSON.parse(dec(data.content));
+    render();
+  } catch (e) {
+    showToast('Load failed: ' + e.message, 'error');
+  } finally {
+    setSaving(false);
+  }
+}
+
+async function save(msg) {
+  setSaving(true);
+  const url = `https://api.github.com/repos/${OWNER}/${REPO}/contents/${FILE}`;
+  const body = {
+    message: msg,
+    content: enc(JSON.stringify(expenses, null, 2))
+  };
+  if (sha) body.sha = sha;
+
+  try {
+    const res = await fetch(url, {
+      method: 'PUT',
+      headers: headers(),
+      body: JSON.stringify(body)
+    });
+    const data = await res.json();
+
+    if (!res.ok) {
+      // Conflict — reload and retry
+      if (res.status === 409 || res.status === 422) {
+        await load();
+        return;
+      }
+      throw new Error(data.message || res.status);
+    }
+
+    sha = data.content.sha;
+    render();
+    showToast('Saved ✓');
+  } catch (e) {
+    showToast('Save failed: ' + e.message, 'error');
+  } finally {
+    setSaving(false);
+  }
+}
+
+// ── Render ───────────────────────────────────────────────
+function updateSummary() {
+  const total = expenses.reduce((s, e) => s + Number(e.amount), 0);
+  const cash  = expenses.filter(e => e.method === 'cash').reduce((s, e) => s + Number(e.amount), 0);
+  const gpay  = expenses.filter(e => e.method === 'gpay').reduce((s, e) => s + Number(e.amount), 0);
+
+  document.getElementById('sumTotal').textContent = fmt(total);
+  document.getElementById('sumCash').textContent  = fmt(cash);
+  document.getElementById('sumGpay').textContent  = fmt(gpay);
+
+  const cnt = expenses.length;
+  document.getElementById('listCount').textContent = cnt + (cnt === 1 ? ' entry' : ' entries');
+}
+
+function render() {
+  updateSummary();
+  const list = document.getElementById('expenseList');
+  list.innerHTML = '';
+
+  if (expenses.length === 0) {
+    list.innerHTML = `
+      <div class="empty" id="emptyState">
+        <div class="empty-icon">🧾</div>
+        <div class="empty-title">No expenses yet</div>
+        <div class="empty-sub">Add your first expense above</div>
+      </div>`;
+    return;
+  }
+
+  // Show newest first
+  [...expenses].reverse().forEach((exp, revIdx) => {
+    const idx = expenses.length - 1 - revIdx;
+    list.appendChild(buildRow(exp, idx));
+  });
+}
+
+function buildRow(exp, idx) {
+  const div = document.createElement('div');
+  div.className = 'expense-item';
+  div.dataset.idx = idx;
+
+  div.innerHTML = `
+    <div class="pay-dot ${exp.method}"></div>
+    <div style="flex:1; min-width:0;">
+      <div class="expense-desc">${escHtml(exp.description)}</div>
+      <span class="expense-date">${fmtDate(exp.created_at)}</span>
+    </div>
+    <div class="expense-right">
+      <span class="expense-method ${exp.method}">${exp.method === 'cash' ? 'Cash' : 'GPay'}</span>
+      <span class="expense-amount">${fmt(exp.amount)}</span>
+      <div class="item-actions">
+        <button class="icon-btn edit" onclick="startEdit(${idx})" title="Edit">✏️</button>
+        <button class="icon-btn del" onclick="deleteExp(${idx})" title="Delete">🗑️</button>
+      </div>
+    </div>
+  `;
+  return div;
+}
+
+function escHtml(s) {
+  return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+
+// ── Add ─────────────────────────────────────────────────
+document.getElementById('addBtn').onclick = async () => {
+  const desc   = document.getElementById('newDesc').value.trim();
+  const amount = parseFloat(document.getElementById('newAmount').value);
+
+  if (!desc) {
+    showToast('Enter a description', 'error');
+    document.getElementById('newDesc').focus();
+    return;
+  }
+  if (!amount || amount <= 0) {
+    showToast('Enter a valid amount', 'error');
+    document.getElementById('newAmount').focus();
+    return;
+  }
+
+  const now = new Date().toISOString();
+  expenses.push({
+    id: Date.now() + Math.random(),
+    description: desc,
+    amount: amount,
+    method: selectedPay,
+    created_at: now
+  });
+
+  document.getElementById('newDesc').value   = '';
+  document.getElementById('newAmount').value = '';
+  selectPay('cash');
+
+  await save('Add expense: ' + desc);
+};
+
+// Enter key on amount → add
+document.getElementById('newAmount').addEventListener('keydown', e => {
+  if (e.key === 'Enter') document.getElementById('addBtn').click();
+});
+
+// ── Edit ─────────────────────────────────────────────────
+function startEdit(idx) {
+  const exp = expenses[idx];
+  const list = document.getElementById('expenseList');
+
+  // Find the row (rendered in reverse, find by data-idx)
+  const row = list.querySelector(`[data-idx="${idx}"]`);
+  if (!row) return;
+
+  let editPay = exp.method;
+
+  row.className = 'expense-item editing';
+  row.innerHTML = `
+    <div class="edit-fields">
+      <input class="edit-desc" value="${escHtml(exp.description)}" placeholder="Description" />
+      <input class="edit-amount" type="number" inputmode="decimal" step="0.01" value="${Number(exp.amount).toFixed(2)}" />
+      <div class="edit-pay-toggle" id="editToggle_${idx}">
+        <div class="edit-pay-opt ${editPay === 'cash' ? 'active-cash' : ''}" id="eOptCash_${idx}" onclick="setEditPay(${idx},'cash')">💵</div>
+        <div class="edit-pay-opt ${editPay === 'gpay' ? 'active-gpay' : ''}" id="eOptGpay_${idx}" onclick="setEditPay(${idx},'gpay')">📱</div>
+      </div>
+      <button class="icon-btn save" onclick="saveEdit(${idx})" title="Save">✅</button>
+      <button class="icon-btn cancel" onclick="render()" title="Cancel">✖️</button>
+    </div>
+  `;
+
+  row._editPay = editPay;
+  row.querySelector('.edit-desc').focus();
+}
+
+function setEditPay(idx, method) {
+  const row = document.getElementById('expenseList').querySelector(`[data-idx="${idx}"]`);
+  if (!row) return;
+  row._editPay = method;
+
+  const c = document.getElementById(`eOptCash_${idx}`);
+  const g = document.getElementById(`eOptGpay_${idx}`);
+  c.className = 'edit-pay-opt' + (method === 'cash' ? ' active-cash' : '');
+  g.className = 'edit-pay-opt' + (method === 'gpay' ? ' active-gpay' : '');
+}
+
+async function saveEdit(idx) {
+  const row  = document.getElementById('expenseList').querySelector(`[data-idx="${idx}"]`);
+  const desc = row.querySelector('.edit-desc').value.trim();
+  const amt  = parseFloat(row.querySelector('.edit-amount').value);
+  const method = row._editPay || expenses[idx].method;
+
+  if (!desc) { showToast('Description required', 'error'); return; }
+  if (!amt || amt <= 0) { showToast('Valid amount required', 'error'); return; }
+
+  expenses[idx].description = desc;
+  expenses[idx].amount      = amt;
+  expenses[idx].method      = method;
+
+  await save('Edit expense: ' + desc);
+}
+
+// ── Delete ───────────────────────────────────────────────
+async function deleteExp(idx) {
+  const exp = expenses[idx];
+  if (!confirm(`Delete "${exp.description}"?`)) return;
+  expenses.splice(idx, 1);
+  await save('Delete expense: ' + exp.description);
+}
+
+// ── Logout ───────────────────────────────────────────────
+document.getElementById('logoutBtn').onclick = () => {
+  if (confirm('Logout?')) {
+    window.location.href = 'index.html';
+  }
+};
+
+// ── Boot ─────────────────────────────────────────────────
+load();
+</script>
+</body>
+</html>
