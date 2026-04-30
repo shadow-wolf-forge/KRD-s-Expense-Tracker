@@ -694,6 +694,7 @@ input[type="number"] { -moz-appearance: textfield; }
         <div class="logo-dot">💸</div>
         <span class="app-name">KRD's Expenses</span>
       </div>
+    
     </div>
   </div>
 
@@ -991,7 +992,7 @@ function escHtml(s) {
 document.getElementById('addBtn').onclick = async () => {
   const desc   = document.getElementById('newDesc').value.trim();
   const amount = parseFloat(document.getElementById('newAmount').value);
-  const done   = document.getElementById('newDone').checked;
+  const done   = false;
 
   if (!desc) {
     showToast('Enter a description', 'error');
@@ -1016,7 +1017,7 @@ document.getElementById('addBtn').onclick = async () => {
 
   document.getElementById('newDesc').value   = '';
   document.getElementById('newAmount').value = '';
-  document.getElementById('newDone').checked = false;
+  
   selectPay('cash');
 
   await save('Add expense: ' + desc);
