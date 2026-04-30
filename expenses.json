@@ -22,13 +22,5 @@
     "method": "cash",
     "done": true,
     "created_at": "2026-04-30T18:21:22.057Z"
-  },
-  {
-    "id": 1777573835193.8882,
-    "description": "coff",
-    "amount": 7777.01,
-    "method": "gpay",
-    "done": false,
-    "created_at": "2026-04-30T18:30:35.193Z"
   }
 ]
