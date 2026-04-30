@@ -1,12 +1,35 @@
-- name: Send email with CSV
-  uses: dawidd6/action-send-mail@v3
-  with:
-    server_address: smtp.gmail.com
-    server_port: 465
-    username: karthikramadurai.cpi@gmail.com
-    password: nnvt jekv bbcv wxwb
-    subject: Your CSV file
-    to: karthikramadurai.ci@gmail.com
-    from: karthikramadurai.cpi@gmail.com
-    body: Please find the CSV attached.
-    attachments: ${{ github.event.inputs.output_name }}
+name: Send CSV Mail
+
+on:
+  workflow_dispatch:
+    inputs:
+      output_name:
+        description: "CSV file name"
+        required: true
+        default: "expenses.csv"
+
+jobs:
+  send-mail:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Convert JSON to CSV
+        run: |
+          npm install -g json2csv
+          json2csv -i expenses.json -o ${{ github.event.inputs.output_name }}
+
+      - name: Send email with CSV
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: smtp.gmail.com
+          server_port: 465
+          username: karthikramadurai.cpi@gmail.com
+		  password: nnvt jekv bbcv wxwb
+          subject: Your CSV file
+          to: karthikramadurai.ci@gmail.com
+          from: karthikramadurai.cpi@gmail.com
+          body: Please find the CSV attached.
+          attachments: ${{ github.event.inputs.output_name }}
