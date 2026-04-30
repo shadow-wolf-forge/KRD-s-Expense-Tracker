@@ -1,0 +1,28 @@
+name: Convert JSON to CSV
+
+on:
+  workflow_dispatch:
+    inputs:
+      output_name:
+        description: "CSV file name"
+        required: true
+        default: "expenses.csv"
+
+jobs:
+  convert:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Convert JSON to CSV
+        run: |
+          npm install -g json2csv
+          json2csv -i expenses.json -o ${{ github.event.inputs.output_name }}
+
+      - name: Upload CSV
+        uses: actions/upload-artifact@v4
+        with:
+          name: csv-output
+          path: ${{ github.event.inputs.output_name }}
