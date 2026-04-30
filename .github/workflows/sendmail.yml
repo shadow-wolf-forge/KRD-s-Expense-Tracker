@@ -27,7 +27,7 @@ jobs:
           server_address: smtp.gmail.com
           server_port: 465
           username: karthikramadurai.cpi@gmail.com
-		  password: nnvt jekv bbcv wxwb
+          password: nnvt jekv bbcv wxwb
           subject: Your CSV file
           to: karthikramadurai.ci@gmail.com
           from: karthikramadurai.cpi@gmail.com
