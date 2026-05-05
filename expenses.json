@@ -124,7 +124,7 @@
     "description": "Lunch & Tea",
     "amount": 90,
     "method": "gpay",
-    "done": false,
+    "done": true,
     "created_at": "2026-05-05T08:20:42.224Z"
   },
   {
