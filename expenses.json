@@ -92,7 +92,7 @@
     "description": "Eve snacks",
     "amount": 40,
     "method": "gpay",
-    "done": false,
+    "done": true,
     "created_at": "2026-05-04T13:34:42.720Z"
   },
   {
