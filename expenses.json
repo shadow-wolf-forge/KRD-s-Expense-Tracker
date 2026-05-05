@@ -60,7 +60,7 @@
     "description": "Mutton",
     "amount": 400,
     "method": "gpay",
-    "done": false,
+    "done": true,
     "created_at": "2026-05-03T04:33:27.351Z"
   },
   {
