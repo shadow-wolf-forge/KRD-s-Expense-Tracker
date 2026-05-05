@@ -100,7 +100,7 @@
     "description": "Oil",
     "amount": 280,
     "method": "gpay",
-    "done": false,
+    "done": true,
     "created_at": "2026-05-05T04:01:39.177Z"
   },
   {
