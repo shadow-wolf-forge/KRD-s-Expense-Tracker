@@ -110,5 +110,13 @@
     "method": "gpay",
     "done": false,
     "created_at": "2026-05-05T04:01:39.177Z"
+  },
+  {
+    "id": 1777953795160.6802,
+    "description": "Leaves",
+    "amount": 10,
+    "method": "cash",
+    "done": false,
+    "created_at": "2026-05-05T04:03:15.160Z"
   }
 ]
