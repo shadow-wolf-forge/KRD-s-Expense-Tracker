@@ -108,7 +108,7 @@
     "description": "Leaves",
     "amount": 10,
     "method": "cash",
-    "done": false,
+    "done": true,
     "created_at": "2026-05-05T04:03:15.160Z"
   },
   {
