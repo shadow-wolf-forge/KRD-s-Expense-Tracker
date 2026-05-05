@@ -28,7 +28,7 @@
     "description": "Kara Snacks",
     "amount": 390,
     "method": "gpay",
-    "done": false,
+    "done": true,
     "created_at": "2026-05-02T10:12:07.148Z"
   },
   {
