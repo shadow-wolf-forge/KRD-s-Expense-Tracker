@@ -142,5 +142,13 @@
     "method": "gpay",
     "done": false,
     "created_at": "2026-05-05T16:09:33.975Z"
+  },
+  {
+    "id": 1777997597486.7014,
+    "description": "Home Groceries",
+    "amount": 3000,
+    "method": "gpay",
+    "done": false,
+    "created_at": "2026-05-05T16:13:17.486Z"
   }
 ]
