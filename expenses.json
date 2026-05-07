@@ -174,5 +174,13 @@
     "method": "gpay",
     "done": false,
     "created_at": "2026-05-06T13:37:50.113Z"
+  },
+  {
+    "id": 1778124036325.895,
+    "description": "Vegetable",
+    "amount": 60,
+    "method": "cash",
+    "done": false,
+    "created_at": "2026-05-07T03:20:36.323Z"
   }
 ]
