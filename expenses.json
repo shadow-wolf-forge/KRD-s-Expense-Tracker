@@ -214,13 +214,5 @@
     "method": "gpay",
     "done": false,
     "created_at": "2026-05-08T13:28:51.726Z"
-  },
-  {
-    "id": 1778397220703.078,
-    "description": "Sujatha",
-    "amount": 1000,
-    "method": "gpay",
-    "done": false,
-    "created_at": "2026-05-10T07:13:40.702Z"
   }
 ]
