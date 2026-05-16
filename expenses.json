@@ -228,7 +228,7 @@
     "description": "Monitor Chair",
     "amount": 19489,
     "method": "gpay",
-    "done": false,
+    "done": true,
     "created_at": "2026-05-12T06:32:24.029Z"
   },
   {
