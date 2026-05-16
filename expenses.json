@@ -140,7 +140,7 @@
     "description": "Petrol",
     "amount": 102,
     "method": "gpay",
-    "done": false,
+    "done": true,
     "created_at": "2026-05-06T05:32:20.175Z"
   },
   {
