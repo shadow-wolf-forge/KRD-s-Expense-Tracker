@@ -300,7 +300,7 @@
     "description": "Veg",
     "amount": 80,
     "method": "cash",
-    "done": false,
+    "done": true,
     "created_at": "2026-05-17T04:54:58.953Z"
   },
   {
