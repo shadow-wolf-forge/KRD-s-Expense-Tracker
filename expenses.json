@@ -348,7 +348,7 @@
     "description": "LPG",
     "amount": 1000,
     "method": "cash",
-    "done": false,
+    "done": true,
     "created_at": "2026-05-19T05:55:42.126Z"
   },
   {
