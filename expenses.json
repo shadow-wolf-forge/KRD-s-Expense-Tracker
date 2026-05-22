@@ -364,7 +364,7 @@
     "description": "Ammu watch",
     "amount": 117,
     "method": "gpay",
-    "done": false,
+    "done": true,
     "created_at": "2026-05-20T06:25:32.172Z"
   },
   {
