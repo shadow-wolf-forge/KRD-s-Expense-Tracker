@@ -332,7 +332,7 @@
     "description": "Kalan",
     "amount": 30,
     "method": "cash",
-    "done": false,
+    "done": true,
     "created_at": "2026-05-18T14:56:17.197Z"
   },
   {
