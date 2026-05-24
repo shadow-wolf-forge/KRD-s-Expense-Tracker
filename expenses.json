@@ -478,5 +478,13 @@
     "method": "gpay",
     "done": false,
     "created_at": "2026-05-23T07:23:49.490Z"
+  },
+  {
+    "id": 1779633115518.5693,
+    "description": "Snacks",
+    "amount": 90,
+    "method": "gpay",
+    "done": false,
+    "created_at": "2026-05-24T14:31:55.515Z"
   }
 ]
