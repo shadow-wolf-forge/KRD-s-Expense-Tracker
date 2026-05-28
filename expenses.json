@@ -590,5 +590,13 @@
     "method": "gpay",
     "done": false,
     "created_at": "2026-05-28T07:25:28.469Z"
+  },
+  {
+    "id": 1779963575392.5315,
+    "description": "Electrician",
+    "amount": 500,
+    "method": "cash",
+    "done": false,
+    "created_at": "2026-05-28T10:19:35.392Z"
   }
 ]
