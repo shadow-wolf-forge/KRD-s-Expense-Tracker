@@ -622,5 +622,13 @@
     "method": "gpay",
     "done": false,
     "created_at": "2026-05-29T08:58:54.850Z"
+  },
+  {
+    "id": 1780045257940.82,
+    "description": "Egg",
+    "amount": 65,
+    "method": "cash",
+    "done": false,
+    "created_at": "2026-05-29T09:00:57.940Z"
   }
 ]
