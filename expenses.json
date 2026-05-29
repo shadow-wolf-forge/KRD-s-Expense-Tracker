@@ -606,5 +606,13 @@
     "method": "cash",
     "done": false,
     "created_at": "2026-05-28T13:20:29.790Z"
+  },
+  {
+    "id": 1780044797166.4856,
+    "description": "Groceries",
+    "amount": 238,
+    "method": "gpay",
+    "done": false,
+    "created_at": "2026-05-29T08:53:17.157Z"
   }
 ]
