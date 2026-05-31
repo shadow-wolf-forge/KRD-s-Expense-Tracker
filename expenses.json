@@ -1,13 +1,5 @@
 [
   {
-    "id": 1780221983042.4763,
-    "description": "a",
-    "amount": 2,
-    "method": "cash",
-    "done": false,
-    "created_at": "2026-05-31T10:06:23.042Z"
-  },
-  {
     "id": 1780221990685.5737,
     "description": "adfs",
     "amount": 23,
