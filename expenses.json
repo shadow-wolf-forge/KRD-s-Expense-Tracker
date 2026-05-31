@@ -468,7 +468,7 @@
     "description": "Food",
     "amount": 330,
     "method": "gpay",
-    "done": false,
+    "done": true,
     "created_at": "2026-05-23T07:23:39.399Z"
   },
   {
