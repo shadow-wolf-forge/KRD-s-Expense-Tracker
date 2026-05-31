@@ -1,1 +1,10 @@
-[]
+[
+  {
+    "id": 1780221509346.3032,
+    "description": "Test",
+    "amount": 33,
+    "method": "gpay",
+    "done": false,
+    "created_at": "2026-05-31T09:58:29.346Z"
+  }
+]
