@@ -516,7 +516,7 @@
     "description": "Snacks",
     "amount": 90,
     "method": "gpay",
-    "done": false,
+    "done": true,
     "created_at": "2026-05-26T14:44:21.115Z"
   },
   {
