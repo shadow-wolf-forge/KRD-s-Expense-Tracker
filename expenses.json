@@ -1,1 +1,10 @@
-[]
+[
+  {
+    "id": 1780233224732.1736,
+    "description": "Milk",
+    "amount": 10,
+    "method": "gpay",
+    "done": false,
+    "created_at": "2026-05-31T13:13:44.724Z"
+  }
+]
