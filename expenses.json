@@ -70,5 +70,13 @@
     "method": "gpay",
     "done": false,
     "created_at": "2026-06-04T06:10:31.433Z"
+  },
+  {
+    "id": 1780636247420.8772,
+    "description": "Monthly Groceries",
+    "amount": 3000,
+    "method": "gpay",
+    "done": false,
+    "created_at": "2026-06-05T05:10:47.413Z"
   }
 ]
