@@ -44,7 +44,7 @@
     "description": "Gurka",
     "amount": 20,
     "method": "cash",
-    "done": false,
+    "done": true,
     "created_at": "2026-06-03T04:38:15.256Z"
   },
   {
