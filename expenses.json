@@ -140,7 +140,7 @@
     "description": "Moi",
     "amount": 500,
     "method": "cash",
-    "done": false,
+    "done": true,
     "created_at": "2026-06-07T09:52:54.041Z"
   },
   {
