@@ -182,5 +182,13 @@
     "method": "gpay",
     "done": false,
     "created_at": "2026-06-11T14:48:22.826Z"
+  },
+  {
+    "id": 1781189518213.9463,
+    "description": "Milk",
+    "amount": 10,
+    "method": "cash",
+    "done": false,
+    "created_at": "2026-06-11T14:51:58.213Z"
   }
 ]
