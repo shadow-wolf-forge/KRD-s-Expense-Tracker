@@ -283,7 +283,7 @@
     "id": 1781620973380.8948,
     "description": "Tea",
     "amount": 12,
-    "method": "cash",
+    "method": "gpay",
     "done": false,
     "created_at": "2026-06-16T14:42:53.377Z"
   }
