@@ -332,7 +332,7 @@
     "description": "Haircut",
     "amount": 100,
     "method": "cash",
-    "done": false,
+    "done": true,
     "created_at": "2026-06-19T05:59:31.430Z"
   }
 ]
