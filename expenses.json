@@ -188,7 +188,7 @@
     "description": "Milk",
     "amount": 10,
     "method": "cash",
-    "done": false,
+    "done": true,
     "created_at": "2026-06-11T14:51:58.213Z"
   },
   {
