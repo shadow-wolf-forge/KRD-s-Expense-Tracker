@@ -156,7 +156,7 @@
     "description": "Egg",
     "amount": 35,
     "method": "gpay",
-    "done": false,
+    "done": true,
     "created_at": "2026-06-10T07:18:53.176Z"
   },
   {
