@@ -220,7 +220,7 @@
     "description": "Mosquito net",
     "amount": 899,
     "method": "gpay",
-    "done": false,
+    "done": true,
     "created_at": "2026-06-13T06:39:25.254Z"
   },
   {
