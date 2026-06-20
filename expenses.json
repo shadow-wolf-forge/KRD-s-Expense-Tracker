@@ -382,5 +382,13 @@
     "method": "cash",
     "done": false,
     "created_at": "2026-06-20T13:53:29.123Z"
+  },
+  {
+    "id": 1781963808179.9644,
+    "description": "Tea",
+    "amount": 12,
+    "method": "gpay",
+    "done": false,
+    "created_at": "2026-06-20T13:56:48.179Z"
   }
 ]
