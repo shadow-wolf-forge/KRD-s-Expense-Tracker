@@ -406,5 +406,13 @@
     "method": "gpay",
     "done": false,
     "created_at": "2026-06-20T14:03:29.662Z"
+  },
+  {
+    "id": 1782025189283.7712,
+    "description": "Mutton",
+    "amount": 400,
+    "method": "cash",
+    "done": false,
+    "created_at": "2026-06-21T06:59:49.282Z"
   }
 ]
