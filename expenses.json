@@ -430,5 +430,13 @@
     "method": "gpay",
     "done": false,
     "created_at": "2026-06-21T07:00:02.639Z"
+  },
+  {
+    "id": 1782025208316.723,
+    "description": "Parking",
+    "amount": 20,
+    "method": "cash",
+    "done": false,
+    "created_at": "2026-06-21T07:00:08.316Z"
   }
 ]
