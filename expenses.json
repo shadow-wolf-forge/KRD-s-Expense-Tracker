@@ -518,5 +518,13 @@
     "method": "gpay",
     "done": false,
     "created_at": "2026-06-24T05:15:29.457Z"
+  },
+  {
+    "id": 1782278289136.8918,
+    "description": "Curr",
+    "amount": 10,
+    "method": "cash",
+    "done": false,
+    "created_at": "2026-06-24T05:18:09.136Z"
   }
 ]
