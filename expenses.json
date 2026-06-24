@@ -526,5 +526,13 @@
     "method": "cash",
     "done": false,
     "created_at": "2026-06-24T05:18:09.136Z"
+  },
+  {
+    "id": 1782278524809.6323,
+    "description": "Veg",
+    "amount": 40,
+    "method": "cash",
+    "done": false,
+    "created_at": "2026-06-24T05:22:04.809Z"
   }
 ]
