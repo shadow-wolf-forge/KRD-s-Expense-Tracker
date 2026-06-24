@@ -494,5 +494,13 @@
     "method": "gpay",
     "done": false,
     "created_at": "2026-06-23T15:01:22.154Z"
+  },
+  {
+    "id": 1782276838002.6963,
+    "description": "KRD Recharge",
+    "amount": 994,
+    "method": "cash",
+    "done": false,
+    "created_at": "2026-06-24T04:53:57.997Z"
   }
 ]
