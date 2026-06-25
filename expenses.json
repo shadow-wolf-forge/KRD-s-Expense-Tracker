@@ -372,7 +372,7 @@
     "description": "Tea parcel",
     "amount": 25,
     "method": "gpay",
-    "done": false,
+    "done": true,
     "created_at": "2026-06-20T07:30:34.042Z"
   },
   {
