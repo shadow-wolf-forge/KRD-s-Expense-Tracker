@@ -380,7 +380,7 @@
     "description": "M8lk",
     "amount": 10,
     "method": "cash",
-    "done": false,
+    "done": true,
     "created_at": "2026-06-20T13:53:29.123Z"
   },
   {
