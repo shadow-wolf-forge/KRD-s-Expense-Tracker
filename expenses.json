@@ -556,7 +556,7 @@
     "description": "Tablet",
     "amount": 4,
     "method": "cash",
-    "done": false,
+    "done": true,
     "created_at": "2026-06-25T12:29:17.032Z"
   },
   {
