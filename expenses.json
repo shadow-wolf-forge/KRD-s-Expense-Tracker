@@ -548,7 +548,7 @@
     "description": "Mall8 gtind",
     "amount": 45,
     "method": "cash",
-    "done": false,
+    "done": true,
     "created_at": "2026-06-25T07:45:25.560Z"
   },
   {
