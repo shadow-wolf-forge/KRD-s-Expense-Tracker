@@ -436,7 +436,7 @@
     "description": "Parking",
     "amount": 20,
     "method": "cash",
-    "done": false,
+    "done": true,
     "created_at": "2026-06-21T07:00:08.316Z"
   },
   {
