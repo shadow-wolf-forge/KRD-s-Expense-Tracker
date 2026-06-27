@@ -606,5 +606,13 @@
     "method": "gpay",
     "done": false,
     "created_at": "2026-06-27T07:19:31.131Z"
+  },
+  {
+    "id": 1782544994778.5981,
+    "description": "Food",
+    "amount": 80,
+    "method": "cash",
+    "done": false,
+    "created_at": "2026-06-27T07:23:14.778Z"
   }
 ]
