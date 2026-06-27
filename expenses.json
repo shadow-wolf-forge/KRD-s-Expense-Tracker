@@ -598,5 +598,13 @@
     "method": "gpay",
     "done": false,
     "created_at": "2026-06-27T06:17:15.575Z"
+  },
+  {
+    "id": 1782544771139.468,
+    "description": "Empty",
+    "amount": 70,
+    "method": "gpay",
+    "done": false,
+    "created_at": "2026-06-27T07:19:31.131Z"
   }
 ]
