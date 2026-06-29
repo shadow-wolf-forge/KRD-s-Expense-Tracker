@@ -668,7 +668,7 @@
     "description": "Chilli powder",
     "amount": 40,
     "method": "cash",
-    "done": false,
+    "done": true,
     "created_at": "2026-06-28T08:53:44.361Z"
   },
   {
