@@ -628,7 +628,7 @@
     "description": "Con city ticket",
     "amount": 200,
     "method": "gpay",
-    "done": false,
+    "done": true,
     "created_at": "2026-06-27T08:37:18.616Z"
   },
   {
