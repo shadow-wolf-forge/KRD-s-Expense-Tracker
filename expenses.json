@@ -1,1 +1,10 @@
-[]
+[
+  {
+    "id": 1782911315382.2693,
+    "description": "Tea",
+    "amount": 12,
+    "method": "gpay",
+    "done": false,
+    "created_at": "2026-07-01T13:08:35.382Z"
+  }
+]
