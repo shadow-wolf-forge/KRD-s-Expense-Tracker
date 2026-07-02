@@ -43,7 +43,7 @@
     "id": 1782997037804.1643,
     "description": "Bru",
     "amount": 10,
-    "method": "cash",
+    "method": "gpay",
     "done": false,
     "created_at": "2026-07-02T12:57:17.804Z"
   }
