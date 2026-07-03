@@ -70,5 +70,13 @@
     "method": "gpay",
     "done": false,
     "created_at": "2026-07-03T12:58:44.121Z"
+  },
+  {
+    "id": 1783091137010.7869,
+    "description": "Groceries",
+    "amount": 65,
+    "method": "gpay",
+    "done": false,
+    "created_at": "2026-07-03T15:05:37.009Z"
   }
 ]
