@@ -166,5 +166,13 @@
     "method": "gpay",
     "done": false,
     "created_at": "2026-07-05T05:44:02.702Z"
+  },
+  {
+    "id": 1783232463442.8474,
+    "description": "Ration",
+    "amount": 95,
+    "method": "cash",
+    "done": false,
+    "created_at": "2026-07-05T06:21:03.442Z"
   }
 ]
