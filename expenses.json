@@ -236,7 +236,7 @@
     "description": "Veg puff",
     "amount": 15,
     "method": "gpay",
-    "done": false,
+    "done": true,
     "created_at": "2026-07-05T14:24:45.415Z"
   },
   {
