@@ -164,7 +164,7 @@
     "description": "Chicken",
     "amount": 130,
     "method": "gpay",
-    "done": false,
+    "done": true,
     "created_at": "2026-07-05T05:44:02.702Z"
   },
   {
