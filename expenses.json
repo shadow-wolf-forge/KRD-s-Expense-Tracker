@@ -180,7 +180,7 @@
     "description": "Milk",
     "amount": 10,
     "method": "gpay",
-    "done": false,
+    "done": true,
     "created_at": "2026-07-05T06:23:11.439Z"
   },
   {
