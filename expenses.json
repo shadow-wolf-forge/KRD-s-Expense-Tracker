@@ -382,5 +382,13 @@
     "method": "gpay",
     "done": false,
     "created_at": "2026-07-09T12:56:29.202Z"
+  },
+  {
+    "id": 1783601793166.2014,
+    "description": "Snakcs",
+    "amount": 30,
+    "method": "gpay",
+    "done": false,
+    "created_at": "2026-07-09T12:56:33.166Z"
   }
 ]
