@@ -414,5 +414,13 @@
     "method": "cash",
     "done": false,
     "created_at": "2026-07-10T05:47:41.298Z"
+  },
+  {
+    "id": 1783677165386.7366,
+    "description": "Petrol",
+    "amount": 542,
+    "method": "gpay",
+    "done": false,
+    "created_at": "2026-07-10T09:52:45.386Z"
   }
 ]
