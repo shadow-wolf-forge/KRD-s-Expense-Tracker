@@ -398,5 +398,13 @@
     "method": "gpay",
     "done": false,
     "created_at": "2026-07-09T14:59:02.580Z"
+  },
+  {
+    "id": 1783662454065.4402,
+    "description": "Idhaym Snacks",
+    "amount": 310,
+    "method": "gpay",
+    "done": false,
+    "created_at": "2026-07-10T05:47:34.065Z"
   }
 ]
