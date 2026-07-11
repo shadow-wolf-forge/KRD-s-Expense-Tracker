@@ -470,5 +470,13 @@
     "method": "cash",
     "done": false,
     "created_at": "2026-07-11T08:14:06.669Z"
+  },
+  {
+    "id": 1783757658193.1875,
+    "description": "Milk cow",
+    "amount": 10,
+    "method": "gpay",
+    "done": false,
+    "created_at": "2026-07-11T08:14:18.193Z"
   }
 ]
