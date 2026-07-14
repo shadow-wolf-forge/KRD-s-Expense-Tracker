@@ -516,7 +516,7 @@
     "description": "Chapati",
     "amount": 30,
     "method": "gpay",
-    "done": false,
+    "done": true,
     "created_at": "2026-07-12T15:46:40.622Z"
   },
   {
