@@ -316,7 +316,7 @@
     "description": "Bike pressure",
     "amount": 10,
     "method": "cash",
-    "done": false,
+    "done": true,
     "created_at": "2026-07-08T06:05:49.674Z"
   },
   {
