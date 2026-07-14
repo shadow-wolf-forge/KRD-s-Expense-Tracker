@@ -348,7 +348,7 @@
     "description": "Fish",
     "amount": 200,
     "method": "cash",
-    "done": false,
+    "done": true,
     "created_at": "2026-07-09T05:38:35.620Z"
   },
   {
