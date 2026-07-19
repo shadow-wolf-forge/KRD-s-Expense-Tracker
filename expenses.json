@@ -766,5 +766,13 @@
     "method": "cash",
     "done": false,
     "created_at": "2026-07-19T08:14:57.169Z"
+  },
+  {
+    "id": 1784448904317.8955,
+    "description": "Odyssey sanck",
+    "amount": 190,
+    "method": "gpay",
+    "done": false,
+    "created_at": "2026-07-19T08:15:04.317Z"
   }
 ]
