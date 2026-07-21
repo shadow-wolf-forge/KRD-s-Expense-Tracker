@@ -806,5 +806,13 @@
     "method": "cash",
     "done": false,
     "created_at": "2026-07-21T14:44:05.823Z"
+  },
+  {
+    "id": 1784645663769.4492,
+    "description": "Coffee",
+    "amount": 25,
+    "method": "gpay",
+    "done": false,
+    "created_at": "2026-07-21T14:54:23.769Z"
   }
 ]
