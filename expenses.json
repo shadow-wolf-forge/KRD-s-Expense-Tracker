@@ -798,5 +798,13 @@
     "method": "gpay",
     "done": false,
     "created_at": "2026-07-20T10:29:26.734Z"
+  },
+  {
+    "id": 1784645045833.2537,
+    "description": "Water bottle",
+    "amount": 14,
+    "method": "cash",
+    "done": false,
+    "created_at": "2026-07-21T14:44:05.823Z"
   }
 ]
