@@ -862,5 +862,13 @@
     "method": "gpay",
     "done": false,
     "created_at": "2026-07-23T14:38:07.783Z"
+  },
+  {
+    "id": 1784818007798.7122,
+    "description": "Mixture",
+    "amount": 30,
+    "method": "gpay",
+    "done": false,
+    "created_at": "2026-07-23T14:46:47.798Z"
   }
 ]
