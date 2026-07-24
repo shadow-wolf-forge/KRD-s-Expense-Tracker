@@ -668,7 +668,7 @@
     "description": "Rava",
     "amount": 45,
     "method": "gpay",
-    "done": false,
+    "done": true,
     "created_at": "2026-07-17T04:48:16.747Z"
   },
   {
