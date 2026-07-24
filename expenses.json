@@ -840,14 +840,6 @@
     "created_at": "2026-07-22T15:27:21.108Z"
   },
   {
-    "id": 1784734943800.433,
-    "description": "Dinner at veg hotel",
-    "amount": 145,
-    "method": "gpay",
-    "done": false,
-    "created_at": "2026-07-22T15:42:23.791Z"
-  },
-  {
     "id": 1784817487787.4207,
     "description": "Tea",
     "amount": 12,
