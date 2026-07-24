@@ -848,14 +848,6 @@
     "created_at": "2026-07-22T15:42:23.791Z"
   },
   {
-    "id": 1784802370118.4648,
-    "description": "Lunch",
-    "amount": 140,
-    "method": "gpay",
-    "done": false,
-    "created_at": "2026-07-23T10:26:10.114Z"
-  },
-  {
     "id": 1784817487787.4207,
     "description": "Tea",
     "amount": 12,
