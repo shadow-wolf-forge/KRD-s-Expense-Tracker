@@ -870,5 +870,13 @@
     "method": "gpay",
     "done": false,
     "created_at": "2026-07-23T14:46:47.798Z"
+  },
+  {
+    "id": 1784871330876.152,
+    "description": "Veggies",
+    "amount": 60,
+    "method": "cash",
+    "done": false,
+    "created_at": "2026-07-24T05:35:30.875Z"
   }
 ]
