@@ -798,5 +798,13 @@
     "method": "cash",
     "done": false,
     "created_at": "2026-07-24T05:35:30.875Z"
+  },
+  {
+    "id": 1784897424424.3806,
+    "description": "Water Bottle",
+    "amount": 18,
+    "method": "cash",
+    "done": false,
+    "created_at": "2026-07-24T12:50:24.424Z"
   }
 ]
