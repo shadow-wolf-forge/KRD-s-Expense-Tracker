@@ -796,7 +796,7 @@
     "description": "Water Bottle",
     "amount": 18,
     "method": "cash",
-    "done": false,
+    "done": true,
     "created_at": "2026-07-24T12:50:24.424Z"
   }
 ]
